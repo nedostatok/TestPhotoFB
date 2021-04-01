@@ -31,10 +31,10 @@ extension LoginViewController: LoginButtonDelegate {
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         guard AccessToken.isCurrentAccessTokenActive else { return }
-        openMainVC()
+        openPhotoVC()
     }
     
-    private func openMainVC() {
+    private func openPhotoVC() {
         dismiss(animated: true,completion: closureForFetchPhotos)
     }
 }

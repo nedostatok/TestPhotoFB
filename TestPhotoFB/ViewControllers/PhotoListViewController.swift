@@ -22,7 +22,7 @@ class PhotoListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkLogin()
+            checkLogin()
     }
     
     func fetchPhotos() {
@@ -30,8 +30,8 @@ class PhotoListViewController: UIViewController {
             switch photos {
             case let .success(photoArr):
                 self.imageLinksArray = photoArr
-            case let .failure(err):
-                print(err)
+            case let .failure(error):
+                print(error)
             }
         }
     }
@@ -44,6 +44,8 @@ class PhotoListViewController: UIViewController {
             }
             self.present(loginVC, animated: true)
             return
+        } else {
+            fetchPhotos()
         }
     }
 }
@@ -87,6 +89,7 @@ extension PhotoListViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
 
